@@ -46,7 +46,7 @@ body{
 #passie{
   grid-area:passie;
   display:grid;
-  grid-template-rows: 1fr 2fr 3fr;
+  grid-template-rows: 1fr 2fr 5fr;
   grid-template-columns: 1fr;
   grid-gap:0;
   grid-template-areas: 
