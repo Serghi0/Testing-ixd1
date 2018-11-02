@@ -1,0 +1,396 @@
+
+body{
+  /*z-index: 2;*/
+  height:100vh;
+  width: 100vw !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0px;
+  transition: all 1s;
+  transform-style: preserve-3d;
+}
+
+.header{
+  grid-column:1/span 3;
+  grid-row:  1;
+} 
+
+.header, .main, .ad1, .ad2, .foot{
+  z-index: 2;
+}
+
+.main{
+  padding-top: 5%;
+  grid-column:1/span 3;
+  grid-row:  2;
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 5fr 2fr;
+  grid-gap:0;
+  grid-template-areas: 
+        "group"
+        "passie"
+        "info";
+}
+
+
+#group{
+  grid-area:group;
+}
+
+#info{
+  grid-area:info;
+}
+
+#passie{
+  grid-area:passie;
+  display:grid;
+  grid-template-rows: 1fr 2fr 3fr;
+  grid-template-columns: 1fr;
+  grid-gap:0;
+  grid-template-areas: 
+        "titel"
+        "awardPic"
+        "passieText";
+}
+
+#passieTitel{
+  grid-area:titel;
+  display:flex;
+  align-self: center;
+}
+
+#awardPic{
+  grid-area:awardPic;
+}
+
+#passieText{
+  grid-area:passieText;
+}
+
+#menu {
+  grid-column:1/span 1;
+  grid-row:2/ span 6;
+}
+
+.ad1 {grid-row: 3;
+  grid-column:1/span 3;
+}
+.ad2 {
+  grid-row:  4;
+  grid-column:1/span 3;
+}
+
+.ad1, .ad2{
+  display:flex;
+  flex-flow: column;
+  align-self:flex-start;
+  justify-self: center;
+}
+
+.ad2 > select{
+  margin: 10px 0 12px 0;
+  max-width: 100%;
+}
+
+.foot {
+  grid-column:1/span 3;
+  grid-row: 5;
+  display:flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#social{
+  grid-area: social;
+  padding-right: 10px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap:10px;
+  grid-template-areas: 
+  "facebook twitter email";
+}
+
+#social > a, #telephone > a{
+  border-radius:5px;
+}
+
+#social > a:hover{
+  background-color: #D16F5E;
+  transition: color 1.5s ease-in;
+}
+
+#telephone > a:hover{
+  color: #D16F5E;
+  transition: color 1.5s ease-in;
+}
+
+#telephone{
+  padding-left: 10px;
+  font-size:16px;
+  font-weight: bold;
+  border-left: 2px solid black;
+}
+
+#telephone > a{
+  color: #000;
+}
+
+#facebook{
+  grid-area:facebook;
+}
+
+#twitter{
+  grid-area:twitter;
+}
+
+#email{
+  grid-area:email;
+}
+
+/*
+  header styles
+*/
+header {
+  display: flex;
+  flex-flow: row;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menutoggle {
+  margin-right: 5%;
+  align-self: center;
+}
+
+.menutoggle a{
+  font-size: 1.2em;
+  color: #000;
+  text-decoration: none;
+}
+
+.active {
+  max-height: 100%;
+  z-index:999;
+  transform: translate3d(0,0,1px);
+  transition: transform 5ms ease-in-out, max-height ease-in-out 1s;
+  -webkit-transition: transform 5ms ease-in-out, max-height ease-in-out 1s, -webkit-transform 2s;
+
+}
+
+.inactive {
+  z-index:999 ;
+  max-height: 0vh;
+  transform: translate3d(0,0,0);
+  transition:  max-height ease-in-out 1s, transform 500ms ease-in-out 1s;
+  -webkit-transition:max-height ease-in-out 1s, transform 500ms ease-in-out 1s, -webkit-transform 2s;
+}
+
+/*
+  Nav styles
+*/
+
+nav {
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  padding: 0;
+  /*padding-top: 90%;*/
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: flex;
+  padding: 1em;
+  margin: 0;
+  list-style: none;
+  justify-content: center;
+  text-align:center;
+  /*border-bottom: 1px solid black;*/
+}
+
+nav ul li:hover {
+  background-color: rgba(50, 50, 50, 0.5);
+}
+
+nav > ul > li > a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 26px;
+  letter-spacing: .34px;
+}
+
+@media only screen and (min-width: 768px){
+  body{
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: 1fr 10fr 10fr 1fr;
+  grid-gap: 0px;
+  height: auto;
+  }
+
+.header{
+  grid-column:1/span 4;
+  grid-row:  1;
+} 
+
+.main{
+  grid-template-rows: 1fr 3fr 1fr; 
+    grid-column:1/span 2;
+    grid-row:  2/ span 2;
+  }
+
+.ad1 {grid-row: 2;
+  grid-column:3/span 2;
+}
+.ad2 {
+  grid-row:  3;
+  grid-column:3/span 2;
+}
+
+.foot {
+  grid-column:1/span 4;
+  grid-row: 4;
+}
+
+.active {
+}
+
+.inactive {
+}
+
+}
+
+
+@media only screen and (min-width: 1024px){
+  body{      height:100vh;
+    /*transition:none;*/
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 1fr 1fr 10fr 9fr 1fr;
+    grid-column-gap: 1px; 
+    grid-template-areas: 
+          "title title title title title title"
+          "menu menu menu menu menu menu"
+          "main  main main main main main"
+          "ad1  ad1  ad1  ad2 ad2   ad2"
+          "foot  foot foot foot foot foot"; 
+  }
+
+.header{grid-area: title;}  
+#menu{grid-area:menu;}
+.main{grid-area: main;}
+.ad1 {grid-area: ad1;}
+.ad2 {grid-area: ad2;}
+.foot {grid-area: foot;}
+.inactive, .active{ max-height:100vh; }
+
+
+.main{
+  padding:1% 5% 0 5%;
+}
+
+.ad1{padding:1% 0 1% 5%;}
+
+.ad2{padding:1% 5% 1% 0;}
+
+.ad1, .ad2{
+  width:75%;
+  height:auto;
+}
+
+
+
+/*#group{
+  margin-right: 10%;
+}*/
+
+
+.main{
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap:5%;
+  grid-row-gap:1%;
+  grid-template-areas: 
+        "group passie"
+        "info passie";
+}
+
+#passie{
+  grid-area: passie;
+  grid-template-rows: 1fr 3fr;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap:0;
+  grid-template-areas: 
+        "titel awardPic"
+        "passieText passieText";
+}
+
+  /* 
+    menutoggle styles
+  */
+  .menutoggle {
+    display: none;
+  }
+
+  /*
+    Nav styles
+  */
+  nav {
+    margin-top: 0;
+    display: flex;
+    flex-flow: row;
+    overflow:visible;
+    padding-top:0;
+    align-items: center;
+  }
+  nav ul{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    padding: 0;
+  }
+  nav ul li {
+    display: flex;
+    padding: 1em;
+    margin: 0;
+    list-style: none;
+    justify-content: center;
+    border: none;
+  }
+
+}
+
+
+
+@media only screen and (min-width: 1440px){
+body{
+  grid-template-rows: 1fr 1fr 2fr 3fr 1fr;
+}
+
+.main{
+  padding:1% 15% 0 15%;
+}
+
+.ad1{padding:1% 0 1% 15%;}
+
+.ad2{padding:1% 15% 1% 0;}
+
+}
+
+
+
+
+
+
